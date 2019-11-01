@@ -1,8 +1,9 @@
 package com.spartaglobal.databaseconnection;
 
 import java.sql.*;
+import java.util.List;
 
-public class JDBExamples {
+public class NWEmployeesDAO {
 
     private  NorthWindDBManager northWindDBManager = new NorthWindDBManager();
     private final String SQL = "SELECT TOP 10 * FROM Employees";
@@ -18,6 +19,21 @@ public class JDBExamples {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public int getTotalNumberOfEmployeeV1(){
+        int empNum = 0;
+        final String SQL = "SELECT COUNT(*) AS 'Total' FROM Employees";
+        try(Statement stmt = northWindDBManager.northWindConnection().createStatement()){
+            ResultSet results = stmt.executeQuery(SQL);
+
+            while (results.next()){
+                empNum = results.getInt("Total");
+            }
+        }catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return empNum;
     }
 
 }

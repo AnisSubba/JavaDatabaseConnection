@@ -8,6 +8,12 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        NWEmployeesDAO jdbExamples = new NWEmployeesDAO();
+        jdbExamples.iterateThroughEmployee();
+        System.out.println(jdbExamples.getTotalNumberOfEmployeeV1());
+
+//        PropertiesManager props = new PropertiesManager();
+//        System.out.println(props.getUsername());
+
     }
 }
