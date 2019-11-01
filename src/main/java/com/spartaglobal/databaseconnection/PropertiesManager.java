@@ -1,4 +1,4 @@
 package com.spartaglobal.databaseconnection;
 
-public class JDBExamples {
+public class PropertiesManager {
 }
